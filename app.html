@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial APP Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Financial Calculator</h1>
+        <button class="btn btn-primary" onclick="addProject()">Add Project</button>
+        <div id="projects-container">
+            <!-- Project template -->
+            <template id="project-template">
+                <div class="project">
+                    <div class="project-header">
+                        <h2>Project <span class="project-number">1</span></h2>
+                        <button class="btn btn-danger remove-project-btn" onclick="removeProject(this)">Remove Project</button>
+                    </div>
+                    <label for="initial_investment1">Initial Investment (KSH):</label>
+                    <input id="initial_investment1" type="number" step="0.01" placeholder="Enter initial investment (optional)">
+
+                    <div id="cashflows1-container">
+                        <label>Cashflows:</label>
+                        <table class="cashflow-table">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Cashflow</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select class="cashflow-period">
+                                            <!-- Options will be added dynamically -->
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="cashflow-input" step="0.01" placeholder="Enter cashflow">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger remove-cashflow-btn" onclick="removeCashflow(this)">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-secondary add-cashflow-btn" onclick="addCashflowInput(this)">Add Cashflow</button>
+                    </div>
+
+                    <label for="discount_rate1">Discount Rate (%):</label>
+                    <input id="discount_rate1" type="number" step="0.01" placeholder="Enter discount rate (default 10%)">
+
+                    <h3>Results for Project <span class="project-number"></span></h3>
+                    <div id="results1" class="results">
+                        <p>Total Cashflow: <span class="total-cashflow"></span></p>
+                        <p>Total Expenses: <span class="total-expenses"></span></p>
+                        <p>Profit: <span class="profit"></span></p>
+                        <p>ROI: <span class="roi"></span></p>
+                        <p>NPV: <span class="npv"></span></p>
+                        <p>IRR: <span class="irr"></span></p>
+                        <p>Payback Period: <span class="payback-period"></span></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button class="btn btn-success calculate-btn" onclick="calculate()">Calculate</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
