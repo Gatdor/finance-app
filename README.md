@@ -1,2 +1,3 @@
 # finance-app
-financial matrice calculation app
+ projects financial matrice calculation app
+ NPV, IRR, ROI,PAYBACK
